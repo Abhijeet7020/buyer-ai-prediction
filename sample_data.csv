@@ -1,0 +1,6 @@
+name,age,income,city,property_type,budget,followups,site_visited,booked
+Rahul,28,60000,Pune,2BHK,5500000,3,1,1
+Megha,34,90000,Mumbai,3BHK,9500000,1,0,0
+Suresh,40,120000,Delhi,3BHK,12000000,2,1,1
+Anjali,27,45000,Pune,1BHK,3200000,1,0,0
+Vinod,35,80000,Bangalore,2BHK,7500000,4,1,1
