@@ -1,45 +1,67 @@
 Buyer Intent Prediction System (Django + ML)
 
-This project is a Django-based Machine Learning application that predicts whether a homebuyer is Interested or Not Interested based on enquiry data.
-It also exposes REST APIs for training, prediction, and insights generation.
+This project is a Django-based Machine Learning application that predicts whether a homebuyer is Interested or Not Interested based on enquiry data. It also exposes REST APIs for training, prediction, and insights generation.
 
 This solution was submitted as part of a Python Developer Take-Home Assignment.
 
-Features
+🚀 Features
 ✔ Machine Learning (scikit-learn)
-Uses RandomForestClassifier for classification
+
+Uses RandomForestClassifier
+
 Encodes categorical fields (city, property type)
-Trains from a simple CSV dataset
+
+Trains from CSV dataset
+
 Saves model using joblib
 
 ✔ Django REST APIs
+
 POST /api/train/ → Train or retrain ML model
-POST /api/predict/ → Predict buyer interest from JSON
+
+POST /api/predict/ → Predict buyer interest
+
 GET /api/insights/ → Dataset statistics & analytics
 
 ✔ Insights Provided
+
 Total enquiries
+
 Number of booked leads
+
 Booking percentage
-Top cities with most enquiries
-Average income of buyers
-Quick business-friendly summary
+
+Top cities
+
+Average income
+
+Useful summary for business teams
 
 ✔ Clean, Modular Architecture
-All ML logic inside core/ml_utils.py
-API routes inside core/views.py
-No database dependency (CSV-based)
-Easy to extend to PostgreSQL later
+
+ML code inside core/ml_utils.py
+
+REST API logic inside core/views.py
+
+No database dependency
+
+Easy to extend with PostgreSQL
 
 ✔ GitHub-Safe
-.gitignore ensures:
-  No venv/
-  No secrets
-  No pycache
-  No DB files
-Safe to publish publicly
 
-Project Structure
+.gitignore ensures:
+
+No venv/
+
+No secrets
+
+No sqlite db
+
+No pycache
+
+Safe for public sharing
+
+📂 Project Structure
 buyer_ai_solution/
 │
 ├── buyer_ai/                     # Django project
@@ -52,41 +74,44 @@ buyer_ai_solution/
 ├── README.md                     # Documentation
 └── .gitignore                    # Git-safe rules
 
-Tech Stack
-Python 3.10+
-Django
-Django REST Framework
-Pandas, NumPy
-scikit-learn (RandomForestClassifier)
-Joblib
-SQLite (default Django DB)
-No DB files
-Safe to publish publicly
+🛠️ Tech Stack
 
-Setup Instructions
-1)Create Virtual Environment:-
+Python 3.10+
+
+Django
+
+Django REST Framework
+
+Pandas, NumPy
+
+scikit-learn (RandomForestClassifier)
+
+Joblib
+
+SQLite
+
+🔧 Setup Instructions
+1️⃣ Create Virtual Environment
 python -m venv venv
 venv\Scripts\activate
 
-2)Install Dependencies:-
+2️⃣ Install Dependencies
 pip install -r requirements.txt
 
-3)Apply Migrations:-
+3️⃣ Apply Migrations
 cd buyer_ai
 python manage.py migrate
 
-4)Run the Server:-
+4️⃣ Run the Server
 python manage.py runserver
 
-API Documentation
-1. Train Model
-POST
-/api/train/
+📡 API Documentation
+🔥 1. Train Model
 
-Description:
-Loads sample_data.csv, trains the ML model, and saves model.joblib.
+POST /api/train/
 
 Sample Response:
+
 {
   "status": "trained",
   "details": {
@@ -95,11 +120,12 @@ Sample Response:
   }
 }
 
-2. Predict Buyer Intent
-POST
-/api/predict/
+🔥 2. Predict Buyer Intent
 
-Sample Request Body:
+POST /api/predict/
+
+Sample Request:
+
 {
   "age": 30,
   "income": 70000,
@@ -110,17 +136,20 @@ Sample Request Body:
   "site_visited": 1
 }
 
+
 Sample Response:
+
 {
   "prediction": "Interested",
   "probability": 0.93
 }
 
-3. Get Insights
-GET
-/api/insights/
+🔥 3. Get Insights
+
+GET /api/insights/
 
 Sample Response:
+
 {
   "total_records": 5,
   "booked_count": 3,
@@ -132,39 +161,68 @@ Sample Response:
   "avg_income": 79000
 }
 
-Machine Learning Model Details
+📊 Machine Learning Model Details
+
 Algorithm: RandomForestClassifier
-Target Variable: booked → 1 (Interested), 0 (Not Interested)
-Features used:
-  age
-  income
-  budget
-  followups
-  site_visited
-  encoded city
-  encoded property type
-Workflow:
-  Load CSV
-  Encode categorical fields
-  Train model
-  Save to model.joblib
-  Serve predictions via API
 
-Security & Git Safety
+Target Variable: booked (1 = Interested, 0 = Not Interested)
+
+Features:
+
+age
+
+income
+
+budget
+
+followups
+
+site_visited
+
+encoded city
+
+encoded property type
+
+Pipeline:
+
+Load CSV
+
+Encode categorical fields
+
+Train model
+
+Save using joblib
+
+Serve predictions via API
+
+🔐 Security & Git Safety
+
 .gitignore excludes:
-  venv/
-  .env
-  *.sqlite3
-  __pycache__/
-  Cached model files
-No sensitive data or credentials in repo
-Clean structure suitable for public sharing
 
-Developer Notes
+venv/
+
+.env
+
+*.sqlite3
+
+__pycache__/
+
+Cached model files
+
+No sensitive data in the repository
+
+Fully safe for public GitHub submission
+
+🙋 Developer Notes
+
 This project focuses on:
-  Clean REST API design
-  Simple yet functional ML pipeline
-  Clear coding structure for reviewers
-  Easy setup and testing
 
-Thank You!
+Clean REST API design
+
+Simple yet functional ML pipeline
+
+Clear coding structure
+
+Easy setup and testing
+
+🎉 Thank You!
